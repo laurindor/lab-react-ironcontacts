@@ -65,9 +65,9 @@ class App extends React.Component {
 
              return (
               <tr key={contact.id}>
-              <td><img src={contact.pictureUrl}/></td>
+              <td><img class= "imgcontact" src={contact.pictureUrl}/></td>
               <td>{contact.name}</td>
-              <td>{contact.popularity.toFixed(2)}</td>
+              <td>{contact.popularity}</td>
               <button onClick={() => this.removeContact()}>Delete</button>
               </tr>
               )
