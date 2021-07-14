@@ -9,40 +9,25 @@
  */
 
 
-
-
 import React from 'react'
 
 import contactsData from '../contacts.json'
 
-const contacts = [
-
-]
-
 export default function ContactsList(){
- return(
-
-        <div className='list'>
-            <h2>Producer's contacts</h2>
-            <tr>
-                <th>Picture</th>
-                <th>Name</th>
-                <th>Popularity</th>
-            </tr>
-                <tr>
-                    <td> <img src={pictureUrl} alt=""></img> </td> 
-                    <td>{name}</td>
-                    <td>{popularity}</td>      
-                </tr>
+    const [contacts, setContacts] = useState(contactsData)
 
 
+    function randomContact(contactId){
+        const updatedContactsArray = contacts.filter(contacts[Math.floor(Math.random()*contacts.length)]);
+        setContacts(updatedContactsArray)
+    }
 
-        </div>
- )
-
-
-
+    
+    return(
+       contacts.map((contact, idx)=>{
+            return(
+                <AddRandom key={idx} contact={contact} handleRandom={randomContact}/>
+            )
+        })
+    )
 }
-
-
-
